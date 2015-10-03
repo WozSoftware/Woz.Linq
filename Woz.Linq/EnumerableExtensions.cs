@@ -26,21 +26,45 @@ namespace Woz.Linq
 {
     public static class EnumerableExtensions
     {
+        /// <summary>
+        /// Return the supplied value in an enumerable as the only element
+        /// </summary>
+        /// <typeparam name="T">The value type</typeparam>
+        /// <param name="value">The value to wrap</param>
+        /// <returns>The value wrapped in an enumerable</returns>
         public static IEnumerable<T> ToEnumerable<T>(this T value)
         {
             yield return value;
         }
 
+        /// <summary>
+        /// Prepends the value at the head of the enumerable
+        /// </summary>
+        /// <typeparam name="T">The value type</typeparam>
+        /// <param name="head">The value to prepend</param>
+        /// <param name="tail">The list to prepend to</param>
+        /// <returns>The resulting list</returns>
         public static IEnumerable<T> Concat<T>(this T head, IEnumerable<T> tail)
-        {
-            return head.ToEnumerable().Concat(tail);
-        } 
+            => head.ToEnumerable().Concat(tail);
 
+        /// <summary>
+        /// Concatinates the value to the end of the list
+        /// </summary>
+        /// <typeparam name="T">The value type</typeparam>
+        /// <param name="head">The list to concatinate to</param>
+        /// <param name="tail">The value to concatinate</param>
+        /// <returns>The resulting list</returns>
         public static IEnumerable<T> Concat<T>(this IEnumerable<T> head, T tail)
-        {
-            return head.Concat(tail.ToEnumerable());
-        } 
+            => head.Concat(tail.ToEnumerable());
 
+        /// <summary>
+        /// Gets the min value of the list or returns the supplied value
+        /// if the list is empty
+        /// </summary>
+        /// <typeparam name="T">The element type in the list</typeparam>
+        /// <param name="source">The list to process</param>
+        /// <param name="orElseValue">The default value if the list is empty</param>
+        /// <returns>The min value</returns>
         public static T MinOrElse<T>(
             this IEnumerable<T> source, T orElseValue)
         {
@@ -51,6 +75,14 @@ namespace Woz.Linq
                 : orElseValue;
         }
 
+        /// <summary>
+        /// Gets the max value of the list or returns the supplied value
+        /// if the list is empty
+        /// </summary>
+        /// <typeparam name="T">The element type in the list</typeparam>
+        /// <param name="source">The list to process</param>
+        /// <param name="orElseValue">The default value if the list is empty</param>
+        /// <returns>The max value</returns>
         public static T MaxOrElse<T>(
             this IEnumerable<T> source, T orElseValue)
         {
@@ -61,11 +93,17 @@ namespace Woz.Linq
                 : orElseValue;
         }
 
+        /// <summary>
+        /// Gets the element with the min selected value from the list
+        /// </summary>
+        /// <typeparam name="T">The element type</typeparam>
+        /// <typeparam name="TKey">The value to test</typeparam>
+        /// <param name="source">The element list</param>
+        /// <param name="selector">Selector to apply to the element</param>
+        /// <returns>The min element</returns>
         public static T MinBy<T, TKey>(
             this IEnumerable<T> source, Func<T, TKey> selector)
-        {
-            return source.CompareBy(selector, x => x < 0);
-        }
+            => source.CompareBy(selector, x => x < 0);
 
         public static T MinByOrElse<T, TKey>(
             this IEnumerable<T> source, Func<T, TKey> selector, T orElseValue)
@@ -77,11 +115,17 @@ namespace Woz.Linq
                 : orElseValue;
         }
 
+        /// <summary>
+        /// Gets the element with the max selected value from the list
+        /// </summary>
+        /// <typeparam name="T">The element type</typeparam>
+        /// <typeparam name="TKey">The value to test</typeparam>
+        /// <param name="source">The element list</param>
+        /// <param name="selector">Selector to apply to the element</param>
+        /// <returns>The max element</returns>
         public static T MaxBy<T, TKey>(
             this IEnumerable<T> source, Func<T, TKey> selector)
-        {
-            return source.CompareBy(selector, x => x > 0);
-        }
+            => source.CompareBy(selector, x => x > 0);
 
         public static T MaxByOrElse<T, TKey>(
             this IEnumerable<T> source, Func<T, TKey> selector, T orElseValue)
@@ -128,6 +172,12 @@ namespace Woz.Linq
             }
         }
 
+        /// <summary>
+        /// A lambda based version of ForEach
+        /// </summary>
+        /// <typeparam name="T">Element type of the list</typeparam>
+        /// <param name="source">The list to process</param>
+        /// <param name="action">The action to apply to the list</param>
         public static void Each<T>(
             this IEnumerable<T> source, Action<T> action)
         {

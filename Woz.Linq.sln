@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Woz.Linq", "Woz.Linq\Woz.Linq.csproj", "{22F8C614-0B09-4E4B-8A21-43E7BD84C21B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Woz.Linq.Tests", "Woz.Linq.Tests\Woz.Linq.Tests.csproj", "{2F3436D9-FAE8-4B08-89F0-D72678AA1CD7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{22F8C614-0B09-4E4B-8A21-43E7BD84C21B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22F8C614-0B09-4E4B-8A21-43E7BD84C21B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22F8C614-0B09-4E4B-8A21-43E7BD84C21B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F3436D9-FAE8-4B08-89F0-D72678AA1CD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F3436D9-FAE8-4B08-89F0-D72678AA1CD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F3436D9-FAE8-4B08-89F0-D72678AA1CD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F3436D9-FAE8-4B08-89F0-D72678AA1CD7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
