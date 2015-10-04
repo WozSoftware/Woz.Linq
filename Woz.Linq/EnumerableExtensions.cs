@@ -41,10 +41,10 @@ namespace Woz.Linq
         /// Prepends the value at the head of the enumerable
         /// </summary>
         /// <typeparam name="T">The value type</typeparam>
-        /// <param name="head">The value to prepend</param>
         /// <param name="tail">The list to prepend to</param>
+        /// <param name="head">The value to prepend</param>
         /// <returns>The resulting list</returns>
-        public static IEnumerable<T> Concat<T>(this T head, IEnumerable<T> tail)
+        public static IEnumerable<T> Prepend<T>(this IEnumerable<T> tail, T head)
             => head.ToEnumerable().Concat(tail);
 
         /// <summary>
@@ -105,14 +105,26 @@ namespace Woz.Linq
             this IEnumerable<T> source, Func<T, TKey> selector)
             => source.CompareBy(selector, x => x < 0);
 
+        /// <summary>
+        /// Gets the element with the min selected value from the list
+        /// or calls the supplied factory if the list is empty
+        /// </summary>
+        /// <typeparam name="T">The element type</typeparam>
+        /// <typeparam name="TKey">The value to test</typeparam>
+        /// <param name="source">The element list</param>
+        /// <param name="selector">Selector to apply to the element</param>
+        /// <param name="orElseFactory">The factory to build the else value</param>
+        /// <returns>The min element</returns>
         public static T MinByOrElse<T, TKey>(
-            this IEnumerable<T> source, Func<T, TKey> selector, T orElseValue)
+            this IEnumerable<T> source, 
+            Func<T, TKey> selector, 
+            Func<T> orElseFactory)
         {
             var buffer = source.ToArray();
 
             return buffer.Length > 0
                 ? buffer.MinBy(selector)
-                : orElseValue;
+                : orElseFactory();
         }
 
         /// <summary>
@@ -127,14 +139,26 @@ namespace Woz.Linq
             this IEnumerable<T> source, Func<T, TKey> selector)
             => source.CompareBy(selector, x => x > 0);
 
+        /// <summary>
+        /// Gets the element with the max selected value from the list
+        /// or calls the supplied factory if the list is empty
+        /// </summary>
+        /// <typeparam name="T">The element type</typeparam>
+        /// <typeparam name="TKey">The value to test</typeparam>
+        /// <param name="source">The element list</param>
+        /// <param name="selector">Selector to apply to the element</param>
+        /// <param name="orElseFactory">The factory to build the else value</param>
+        /// <returns>The max element</returns>
         public static T MaxByOrElse<T, TKey>(
-            this IEnumerable<T> source, Func<T, TKey> selector, T orElseValue)
+            this IEnumerable<T> source, 
+            Func<T, TKey> selector, 
+            Func<T> orElseFactory)
         {
             var buffer = source.ToArray();
 
             return buffer.Length > 0
                 ? buffer.MaxBy(selector)
-                : orElseValue;
+                : orElseFactory();
         }
 
         private static T CompareBy<T, TKey>(

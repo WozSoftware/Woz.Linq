@@ -24,8 +24,13 @@ using System.Linq;
 
 namespace Woz.Linq
 {
+    /// <summary>
+    /// A set of extensions that add functionality missing from Linq
+    /// </summary>
     public static class EnumeratorExtensions
     {
+        // TODO: Split into partial classes when grows too big
+
         /// <summary>
         /// Unpack the enumerator and return its contents in an array
         /// </summary>
