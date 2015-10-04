@@ -33,4 +33,4 @@ Functionality
 Functionality
 - ToArray = Read the IEnumerator and buffer into an array
 - ToEnumerable = Convert the IEnumerator into and IEnumberable
-= Select = Run a selector over the IEnumerator and return as an IEnumberable
+- Select = Run a selector over the IEnumerator and return as an IEnumberable
