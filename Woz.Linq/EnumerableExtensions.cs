@@ -20,6 +20,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 
 namespace Woz.Linq
@@ -195,6 +196,19 @@ namespace Woz.Linq
                 return best;
             }
         }
+
+        /// <summary>
+        /// Select the distinct object in the enumerable by a key
+        /// </summary>
+        /// <typeparam name="T">The element type</typeparam>
+        /// <typeparam name="TKey">The key type</typeparam>
+        /// <param name="source">The source list</param>
+        /// <param name="keySelector">The key selector</param>
+        /// <returns>The distinct list</returns>
+        public static IEnumerable<T> DistinctBy<T, TKey>(
+            this IEnumerable<T> source,
+            Func<T, TKey> keySelector)
+            => source.GroupBy(keySelector).Select(x => x.First());
 
         /// <summary>
         /// A lambda based version of ForEach

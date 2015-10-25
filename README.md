@@ -26,6 +26,7 @@ Functionality
 - MinByOrElse = Get the element with the Min value identified by a selector or run element factory when empty
 - MaxBy = Get the element with the Max value identified by a selector
 - MaxByOrElse = Get the element with the Max value identified by a selector or run element factory when empty
+- DistinctBy - Get the distinct elements using a selected key
 - Each = Foreach but lambda based
 
 ## Extras for IEnumerator and IEnumerator&lt;T&gt;

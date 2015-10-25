@@ -131,6 +131,24 @@ namespace Woz.Linq.Tests
         }
 
         [TestMethod]
+        public void DistinctBy()
+        {
+            var source =
+                new[]
+                {
+                    new {Key = 1},
+                    new {Key = 2},
+                    new {Key = 1},
+                    new {Key = 2}
+                };
+
+            CollectionAssert.AreEqual(
+                new[] {1, 2}, 
+                source.DistinctBy(x => x.Key).Select(x => x.Key).ToArray());
+        }
+
+
+        [TestMethod]
         public void Each()
         {
             var source = new[] {1, 2, 3};
