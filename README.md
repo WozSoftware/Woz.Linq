@@ -1,14 +1,8 @@
 # Woz.Linq
 
-A portabe class with extra Linq functions that I feel are missing from the standard MS implementation with support for:
-- .NET Framework 4.5
-- .NET Framework 4.5.1
-- .NET Framework 4.6
-- ASP.NET Core 5
-- Windows Universal 10
-- Windows 8
-- Windows Phone 8.1
-- Windows Phone Silverlight 8
+Now released under Unlicense (http://unlicense.org)
+
+A compact lightweight thread safe IOC library for .NET compiled against .NETStandard 1.6
 
 ## Background
 
@@ -18,7 +12,6 @@ While this might appear to be a new project it is a compilation of various Linq 
 
 Functionality
 - ToEnumerable = Wrap a value in an IEnumerable 
-- Prepend = Add a value at the head of an IEnumberable
 - Concat = Add a value to the end of an IEnumberable
 - MinOrElse = Get the Min of an IEnumberable or return a default when empty
 - MaxOrElse = Get the Max of an IEnumberable or return a default when empty

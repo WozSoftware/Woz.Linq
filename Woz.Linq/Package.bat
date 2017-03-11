@@ -1,1 +1,0 @@
-c:\tools\nuget\nuget.exe pack Woz.Linq.csproj -Prop Configuration=Release -IncludeReferencedProjects
