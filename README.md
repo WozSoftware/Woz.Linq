@@ -2,7 +2,7 @@
 
 Now released under Unlicense (http://unlicense.org)
 
-A compact lightweight thread safe IOC library for .NET compiled against .NETStandard 1.6
+A compact lightweight thread safe IOC library for .NET compiled against .NETStandard 1
 
 ## Background
 
