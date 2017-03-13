@@ -41,8 +41,6 @@ namespace Woz.Linq
     /// </summary>
     public static class EnumeratorExtensions
     {
-        // TODO: Split into partial classes when grows too big
-
         /// <summary>
         /// Unpack the enumerator and return its contents in an array
         /// </summary>

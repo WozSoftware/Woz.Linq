@@ -69,14 +69,10 @@ namespace Woz.Linq
         /// <param name="source">The list to process</param>
         /// <param name="orElseValue">The default value if the list is empty</param>
         /// <returns>The min value</returns>
-        public static T MinOrElse<T>(
-            this IEnumerable<T> source, T orElseValue)
+        public static T MinOrElse<T>(this IEnumerable<T> source, T orElseValue)
         {
             var buffer = source.ToArray();
-
-            return buffer.Length > 0
-                ? buffer.Min()
-                : orElseValue;
+            return buffer.Length > 0 ? buffer.Min() : orElseValue;
         }
 
         /// <summary>
@@ -87,14 +83,10 @@ namespace Woz.Linq
         /// <param name="source">The list to process</param>
         /// <param name="orElseValue">The default value if the list is empty</param>
         /// <returns>The max value</returns>
-        public static T MaxOrElse<T>(
-            this IEnumerable<T> source, T orElseValue)
+        public static T MaxOrElse<T>(this IEnumerable<T> source, T orElseValue)
         {
             var buffer = source.ToArray();
-
-            return buffer.Length > 0
-                ? buffer.Max()
-                : orElseValue;
+            return buffer.Length > 0 ? buffer.Max() : orElseValue;
         }
 
         /// <summary>
@@ -120,15 +112,10 @@ namespace Woz.Linq
         /// <param name="orElseFactory">The factory to build the else value</param>
         /// <returns>The min element</returns>
         public static T MinByOrElse<T, TKey>(
-            this IEnumerable<T> source, 
-            Func<T, TKey> selector, 
-            Func<T> orElseFactory)
+            this IEnumerable<T> source, Func<T, TKey> selector, Func<T> orElseFactory)
         {
             var buffer = source.ToArray();
-
-            return buffer.Length > 0
-                ? buffer.MinBy(selector)
-                : orElseFactory();
+            return buffer.Length > 0 ? buffer.MinBy(selector) : orElseFactory();
         }
 
         /// <summary>
@@ -139,8 +126,7 @@ namespace Woz.Linq
         /// <param name="source">The element list</param>
         /// <param name="selector">Selector to apply to the element</param>
         /// <returns>The max element</returns>
-        public static T MaxBy<T, TKey>(
-            this IEnumerable<T> source, Func<T, TKey> selector)
+        public static T MaxBy<T, TKey>(this IEnumerable<T> source, Func<T, TKey> selector)
             => source.CompareBy(selector, x => x > 0);
 
         /// <summary>
@@ -154,21 +140,14 @@ namespace Woz.Linq
         /// <param name="orElseFactory">The factory to build the else value</param>
         /// <returns>The max element</returns>
         public static T MaxByOrElse<T, TKey>(
-            this IEnumerable<T> source, 
-            Func<T, TKey> selector, 
-            Func<T> orElseFactory)
+            this IEnumerable<T> source, Func<T, TKey> selector, Func<T> orElseFactory)
         {
             var buffer = source.ToArray();
-
-            return buffer.Length > 0
-                ? buffer.MaxBy(selector)
-                : orElseFactory();
+            return buffer.Length > 0 ? buffer.MaxBy(selector) : orElseFactory();
         }
 
         private static T CompareBy<T, TKey>(
-            this IEnumerable<T> source,
-            Func<T, TKey> selector,
-            Func<int, bool> isBetter)
+            this IEnumerable<T> source, Func<T, TKey> selector, Func<int, bool> isBetter)
         {
             var comparer = Comparer<TKey>.Default;
 
@@ -209,8 +188,7 @@ namespace Woz.Linq
         /// <param name="keySelector">The key selector</param>
         /// <returns>The distinct list</returns>
         public static IEnumerable<T> DistinctBy<T, TKey>(
-            this IEnumerable<T> source,
-            Func<T, TKey> keySelector)
+            this IEnumerable<T> source, Func<T, TKey> keySelector)
             => source.GroupBy(keySelector).Select(x => x.First());
 
         /// <summary>

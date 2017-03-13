@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.6</TargetFramework>
-    <Version>2.0.0</Version>
+    <TargetFramework>netstandard1.0</TargetFramework>
+    <Version>2.1.0</Version>
     <Authors>Woz</Authors>
     <Company>Woz.Software</Company>
     <Description>Set of extensions to Linq</Description>
@@ -12,7 +12,7 @@
     <RepositoryUrl>https://github.com/WozSoftware/Woz.Linq</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <PackageTags>Linq</PackageTags>
-    <PackageReleaseNotes>Moved to .NETStandard 1.6</PackageReleaseNotes>
+    <PackageReleaseNotes>Moved to .NETStandard 1</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
