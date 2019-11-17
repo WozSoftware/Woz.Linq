@@ -24,7 +24,10 @@ namespace Woz.Linq
         {
             while (source.MoveNext())
             {
+#pragma warning disable CS8601 // Possible null reference assignment.
+                // Can't be null as valid move next completed
                 yield return selector((T)source.Current);
+#pragma warning restore CS8601 // Possible null reference assignment.
             }
         }
 

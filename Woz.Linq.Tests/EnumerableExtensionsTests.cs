@@ -68,7 +68,7 @@ namespace Woz.Linq.Tests
         public void MinByOrElseWhenValues()
         {
             var source =
-                new[]
+                new TestObject?[]
                 {
                     new TestObject {Value = 3},
                     new TestObject {Value = 2},
@@ -95,7 +95,7 @@ namespace Woz.Linq.Tests
         public void MaxByOrElseWhenValues()
         {
             var source =
-                new[]
+                new TestObject?[]
                 {
                     new TestObject {Value = 3},
                     new TestObject {Value = 2},
