@@ -16,6 +16,7 @@
     <AssemblyVersion>3.0.0.1</AssemblyVersion>
     <FileVersion>3.0.0.1</FileVersion>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
