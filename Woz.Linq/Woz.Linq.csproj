@@ -1,26 +1,28 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>2.1.0</Version>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <PackageId>Woz.Linq</PackageId>
+    <Version>3.0.0</Version>
     <Authors>Woz</Authors>
     <Company>Woz.Software</Company>
     <Description>Set of extensions to Linq</Description>
     <Copyright>Copyright ©  2017</Copyright>
     <PackageProjectUrl>https://github.com/WozSoftware/Woz.Linq</PackageProjectUrl>
-    <PackageLicenseUrl>https://github.com/WozSoftware/Woz.Linq/blob/master/LICENSE</PackageLicenseUrl>
     <RepositoryUrl>https://github.com/WozSoftware/Woz.Linq</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <PackageTags>Linq</PackageTags>
-    <PackageReleaseNotes>Moved to .NETStandard 1</PackageReleaseNotes>
+    <PackageReleaseNotes>Moved to Core 3</PackageReleaseNotes>
+    <AssemblyVersion>3.0.0.1</AssemblyVersion>
+    <FileVersion>3.0.0.1</FileVersion>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>bin\Release\netstandard1.6\Woz.Linq.xml</DocumentationFile>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>bin\Debug\netstandard1.6\Woz.Linq.xml</DocumentationFile>
-  </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
