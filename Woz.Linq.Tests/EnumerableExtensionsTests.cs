@@ -68,7 +68,7 @@ namespace Woz.Linq.Tests
         public void MinByOrElseWhenValues()
         {
             var source =
-                new TestObject?[]
+                new []
                 {
                     new TestObject {Value = 3},
                     new TestObject {Value = 2},
@@ -77,7 +77,7 @@ namespace Woz.Linq.Tests
 
             Assert.Same(
                 source[1],
-                source.MinByOrElse(x => x.Value, () => null));
+                source.MinByOrElse(x => x.Value, () => new TestObject()));
         }
 
         [Fact]
@@ -95,7 +95,7 @@ namespace Woz.Linq.Tests
         public void MaxByOrElseWhenValues()
         {
             var source =
-                new TestObject?[]
+                new []
                 {
                     new TestObject {Value = 3},
                     new TestObject {Value = 2},
@@ -104,7 +104,7 @@ namespace Woz.Linq.Tests
 
             Assert.Same(
                 source[2],
-                source.MaxByOrElse(x => x.Value, () => null));
+                source.MaxByOrElse(x => x.Value, () => new TestObject()));
         }
 
         [Fact]
